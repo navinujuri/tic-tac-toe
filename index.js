@@ -65,7 +65,7 @@ function searchforwin(boxnumber, playerarr) {
       break;
   }
 }
-
+let flag2 = true;
 let winner = document.getElementById("win");
 function mark(e) {
   counter++;
@@ -78,6 +78,7 @@ function mark(e) {
         ele.disabled = "true";
       });
       console.log("playerone");
+      flag2 = false;
       winner.innerText = "Player1 WINS ";
     }
   } else {
@@ -87,9 +88,11 @@ function mark(e) {
       inp.forEach((ele) => {
         ele.disabled = "true";
       });
-
+      flag2 = false;
       winner.innerText = "Player2 WINS ";
     }
   }
   e.target.disabled = "true";
+  console.log(counter);
+  if (counter == 9 && flag2 == true) winner.innerText = "Draw Match ";
 }
